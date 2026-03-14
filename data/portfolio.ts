@@ -110,28 +110,34 @@ export const INSIGHTS = [
 
 export const EXPERIENCE = [
   {
-    role: 'Voice Program Support Manager',
+    role: 'AI Operations Consultant',
+    company: 'Various Startups (SaaS, FinTech)',
+    period: '2024 — Present',
+    description: 'Architecting an AI-powered help desk platform (CX Space) and developed an AI-driven career tool (RoleFit). Partnering with organizations to implement RAG-based Smart Help Centers, reducing manual inquiries.',
+  },
+  {
+    role: 'Delivery Service Partner (DSP) Program Lead',
     company: 'Amazon',
     period: '2020 — 2024',
-    description: 'Led 20+ customer service professionals. Improved customer satisfaction by 37% in year one through coaching and tailored training. Built tiered support, cross-training, and analytics programs.',
+    description: 'Designed a tiered escalation framework using AI-supported workflow optimization, reducing complex escalations by 24%. Directed a 20-member team overseeing global CX operations and established a peer-to-peer knowledge system.',
   },
   {
-    role: 'Customer Experience Manager',
+    role: 'Customer Experience Team Lead',
     company: 'Away Travel',
-    period: '2018 — 2020',
-    description: 'Led a 32-person team. Increased productivity 18% and improved efficiency 23% through SOPs, playbooks, and operating cadence. Implemented customer feedback loops that raised satisfaction 17%.',
+    period: '2019 — 2020',
+    description: 'Elevated team effectiveness by 30% via automated reporting. Redesigned SOPs for a 23% efficiency increase. Established cross-functional QA reviews that improved CSAT metrics by 17%.',
   },
   {
     role: 'Customer Experience Manager',
-    company: 'GBI International',
-    period: '2016 — 2018',
-    description: 'Delivered technical support with 89% resolution rate. Built CSR training programs that improved satisfaction 11%. Partnered cross-functionally on website UI updates driving a 22% lift in conversions.',
+    company: 'GBI International (FinTech)',
+    period: '2017 — 2019',
+    description: 'Maintained an 89% resolution rate by implementing structured omnichannel workflows. Partnered with UX teams to redesign site navigation, driving a 22% increase in online conversions.',
   },
   {
-    role: 'Additional Roles',
-    company: 'Pinata · Blake eLearning · aden + anais',
+    role: 'Additional Experience',
+    company: 'PINATA · Blake eLearning · aden + anais',
     period: '—',
-    description: 'Team Lead, Engagement Specialist, and Customer Service Representative roles building foundational CX and operations expertise.',
+    description: 'Customer Experience Manager at PINATA (SaaS). Engagement Lead at Blake eLearning (EdTech). Previously Customer Service Rep at aden + anais.',
   },
 ];
 
