@@ -6,6 +6,10 @@ export interface Project {
   tags: string[];
   gridX: number;
   gridY: number;
+  visual?: {
+    type: 'video' | 'image';
+    src: string;
+  };
 }
 
 export const PROJECTS: Project[] = [
@@ -17,6 +21,7 @@ export const PROJECTS: Project[] = [
     tags: ['Next.js', 'OpenAI', 'Postgres', 'Tailwind'],
     gridX: -2,
     gridY: 1,
+    visual: { type: 'video', src: '/pointtaken_backend.mp4' },
   },
   {
     id: 'rolefit',
@@ -26,6 +31,7 @@ export const PROJECTS: Project[] = [
     tags: ['Python', 'FastAPI', 'Vector DB', 'React'],
     gridX: 0,
     gridY: 1,
+    visual: { type: 'video', src: '/Demo.mp4' },
   },
   {
     id: 'daywell',
@@ -35,6 +41,7 @@ export const PROJECTS: Project[] = [
     tags: ['React Native', 'Node.js', 'Firebase', 'ML Kit'],
     gridX: 2,
     gridY: 1,
+    visual: { type: 'image', src: '/under-construction.gif' },
   },
   {
     id: 'pingful',
@@ -44,6 +51,7 @@ export const PROJECTS: Project[] = [
     tags: ['Twilio', 'GPT-4', 'GCP', 'Python'],
     gridX: -1,
     gridY: -1,
+    visual: { type: 'image', src: '/backend.webp' },
   },
   {
     id: 'cx-space',
@@ -53,6 +61,7 @@ export const PROJECTS: Project[] = [
     tags: ['Next.js', 'Express', 'MongoDB', 'OpenAI'],
     gridX: 1,
     gridY: -1,
+    visual: { type: 'image', src: '/penguin-bot-headset.png' },
   },
 ];
 

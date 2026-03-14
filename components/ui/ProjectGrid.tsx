@@ -111,12 +111,34 @@ function ProjectCard({ project, index, onSelect, isSelected }: ProjectCardProps)
           fontWeight: 600,
           color: 'var(--text)',
           lineHeight: 1.2,
-          marginBottom: 12,
+          marginBottom: project.visual ? 16 : 12,
           letterSpacing: '-0.01em',
         }}
       >
         {displayText}
       </h3>
+
+      {/* Live Visual */}
+      {project.visual && (
+        <div style={{ marginBottom: 20, borderRadius: 4, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
+          {project.visual.type === 'video' ? (
+            <video
+              src={project.visual.src}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: '100%', display: 'block', objectFit: 'cover', maxHeight: 200 }}
+            />
+          ) : (
+            <img
+              src={project.visual.src}
+              alt={project.title}
+              style={{ width: '100%', display: 'block', objectFit: 'cover', maxHeight: 200 }}
+            />
+          )}
+        </div>
+      )}
 
       {/* Description */}
       <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--muted)', lineHeight: 1.7, marginBottom: 20 }}>
