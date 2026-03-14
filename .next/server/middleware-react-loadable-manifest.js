@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"app\\\\page.tsx -> @/components/canvas/SceneCanvas\":{\"id\":\"app\\\\page.tsx -> @/components/canvas/SceneCanvas\",\"files\":[\"static/chunks/_app-pages-browser_components_canvas_SceneCanvas_tsx.js\"]}}"
