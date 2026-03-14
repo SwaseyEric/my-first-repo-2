@@ -19,6 +19,8 @@ const SceneCanvas = dynamic(() => import('@/components/canvas/SceneCanvas'), {
 
 export default function Home() {
   const mouseRef = useRef<[number, number]>([0, 0]);
+  const [unlocked, setUnlocked] = useState(false);
+  const [showGate, setShowGate] = useState(true);
 
   // Update mouse ref for the particle field
   useEffect(() => {
@@ -31,6 +33,11 @@ export default function Home() {
     };
     window.addEventListener('mousemove', onMove, { passive: true });
     return () => window.removeEventListener('mousemove', onMove);
+  }, []);
+
+  const handleUnlock = useCallback(() => {
+    setUnlocked(true);
+    setTimeout(() => setShowGate(false), 700);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -46,11 +53,15 @@ export default function Home() {
       {/* Fixed full-viewport WebGL background */}
       <SceneCanvas mouseRef={mouseRef} />
 
+      {/* Passcode gate */}
+      {showGate && <PasscodeGate onUnlock={handleUnlock} />}
+
       {/* Main content */}
       <div
         style={{
-          opacity: 1,
-          animation: 'fadeUp 1.2s ease 0.2s both',
+          opacity: unlocked ? 1 : 0,
+          transition: 'opacity 0.8s ease 0.3s',
+          pointerEvents: unlocked ? 'auto' : 'none',
         }}
       >
         <MagneticNav
