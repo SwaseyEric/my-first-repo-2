@@ -13,11 +13,26 @@ export default function PasscodeGate({ onUnlock }: PasscodeGateProps) {
   const [error, setError] = useState('');
   const [attempts, setAttempts] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [typedTitle, setTypedTitle] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const TITLE = 'SWASEY';
 
   useEffect(() => {
     // Auto-focus after mount
     setTimeout(() => inputRef.current?.focus(), 100);
+
+    // Typewriter effect for SWASEY
+    let i = 0;
+    const intervalId = setInterval(() => {
+      setTypedTitle(TITLE.slice(0, i + 1));
+      i++;
+      if (i === TITLE.length) {
+        clearInterval(intervalId);
+      }
+    }, 150);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const tryUnlock = useCallback(() => {
@@ -63,18 +78,29 @@ export default function PasscodeGate({ onUnlock }: PasscodeGateProps) {
         }}
       />
 
-      <p className="gate-sub">RESTRICTED ACCESS</p>
+      <div style={{ marginBottom: 24, zIndex: 1, position: 'relative' }}>
+        <video 
+          src="/DeskTop.webm" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          style={{ width: '100%', maxWidth: 400, borderRadius: 8, opacity: 0.8 }} 
+        />
+      </div>
 
-      <h1 className="gate-title">
-        SWASEY<span className="blink">_</span>
+      <p className="gate-sub" style={{ zIndex: 1 }}>RESTRICTED ACCESS</p>
+
+      <h1 className="gate-title" style={{ zIndex: 1 }}>
+        {typedTitle}<span className="blink">_</span>
       </h1>
 
-      <p className="gate-sub" style={{ marginTop: -12 }}>
+      <p className="gate-sub" style={{ marginTop: -12, zIndex: 1 }}>
         CX & OPERATIONS LEADER
       </p>
 
-      <div className="gate-input-row">
-        <span className="gate-prompt">$ AUTH &gt;</span>
+      <div className="gate-input-row" style={{ zIndex: 1 }}>
+        <span className="gate-prompt">AUTH &gt;</span>
         <input
           ref={inputRef}
           className="gate-input"
@@ -92,9 +118,9 @@ export default function PasscodeGate({ onUnlock }: PasscodeGateProps) {
         </button>
       </div>
 
-      <p className="gate-error">{error || '\u00a0'}</p>
+      <p className="gate-error" style={{ zIndex: 1 }}>{error || '\u00a0'}</p>
 
-      <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.15)', fontFamily: 'var(--mono)', letterSpacing: '0.1em' }}>
+      <p style={{ zIndex: 1, fontSize: 10, color: 'rgba(255,255,255,0.15)', fontFamily: 'var(--mono)', letterSpacing: '0.1em' }}>
         PORTFOLIO v2.0 // SPATIAL CANVAS EDITION
       </p>
     </div>
