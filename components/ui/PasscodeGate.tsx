@@ -30,7 +30,7 @@ export default function PasscodeGate({ onUnlock }: PasscodeGateProps) {
       if (i === TITLE.length) {
         clearInterval(intervalId);
       }
-    }, 150);
+    }, 50);
 
     return () => clearInterval(intervalId);
   }, []);
