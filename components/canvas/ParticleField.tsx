@@ -4,7 +4,7 @@ import { useRef, useMemo } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const PARTICLE_COUNT = 5000;
+const PARTICLE_COUNT = 1500;
 
 const vertexShader = `
   uniform float u_time;
@@ -52,11 +52,11 @@ const fragmentShader = `
     // Soft edge
     float alpha = smoothstep(0.5, 0.1, r);
 
-    // Slight color variation — mostly white, hint of blue near cursor
+    // Dimmed colors for better contrast against text
     float distFactor = clamp(v_dist / 12.0, 0.0, 1.0);
-    vec3 col = mix(vec3(0.49, 0.83, 0.99), vec3(0.9, 0.9, 0.95), distFactor);
+    vec3 col = mix(vec3(0.25, 0.45, 0.60), vec3(0.35, 0.35, 0.40), distFactor);
 
-    gl_FragColor = vec4(col, alpha * 0.55);
+    gl_FragColor = vec4(col, alpha * 0.15);
   }
 `;
 
